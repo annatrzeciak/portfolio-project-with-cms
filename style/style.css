@@ -73,6 +73,16 @@ i.mail {
   display: block;
   border-radius: 50%; }
 
+.page-section {
+  padding-top: 80px;
+  padding-bottom: 80px; }
+  .page-section h3.section-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'AvantGardeCEBold';
+    font-size: 38px;
+    margin-bottom: 40px; }
+
 header {
   height: 100vh;
   background: rgba(35, 45, 80, 0.5) url("../images/header-background.png");
@@ -90,8 +100,6 @@ header {
         font-size: 18px;
         font-family: "AvantGardeCE";
         font-weight: bold; }
-        header .navbar .navbar-nav .nav-item.active .nav-link, header .navbar .navbar-nav .nav-item:hover .nav-link {
-          border-bottom: 2px solid #fff; }
         header .navbar .navbar-nav .nav-item .nav-link {
           color: #fff;
           text-transform: uppercase;
@@ -140,6 +148,8 @@ header {
     margin-top: 30px; }
     .about-section .skills .skill:first-of-type {
       margin-top: 0; }
+    .about-section .skills .skill:last-of-type {
+      margin-bottom: 10px; }
     .about-section .skills .skill p {
       font-family: "AvantGardeCEBold";
       text-transform: uppercase;
@@ -153,12 +163,129 @@ header {
 
 .contact-section {
   background: #dcdcde;
-  padding-top: 90px;
-  padding-bottom: 90px;
   color: #4d4d4d;
   font-size: 18px; }
+  .contact-section .col-lg-4 {
+    margin-bottom: 10px;
+    margin-top: 10px; }
   .contact-section h5 {
     font-weight: bold;
     text-transform: uppercase; }
+
+.portfolio-section .portfolio-items .portfolio-item {
+  min-height: 200px;
+  transition: 0.3s; }
+  .portfolio-section .portfolio-items .portfolio-item:hover {
+    opacity: 0.5; }
+  .portfolio-section .portfolio-items .portfolio-item img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    margin-top: 15px; }
+
+.comments {
+  background: url("../images/comments-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-align: right; }
+  .comments .slider {
+    position: relative;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center; }
+    .comments .slider .comment-item {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      float: right; }
+      .comments .slider .comment-item h4 {
+        font-size: 25px;
+        font-family: "AvantGardeCEBold";
+        text-transform: uppercase;
+        line-height: 1.2; }
+        .comments .slider .comment-item h4 + span {
+          font-size: 15px;
+          font-family: "AvantGardeCEBold";
+          color: #c714d5; }
+      .comments .slider .comment-item img {
+        border-radius: 50%;
+        border: 5px solid #fff; }
+      .comments .slider .comment-item .quotation {
+        margin: 30px;
+        position: relative; }
+        .comments .slider .comment-item .quotation:before {
+          content: open-quote;
+          position: absolute;
+          top: -60px;
+          left: -30px;
+          font-size: 50px;
+          font-family: "AvantGardeCEBold"; }
+        .comments .slider .comment-item .quotation:after {
+          content: close-quote;
+          position: absolute;
+          right: -30px;
+          bottom: -70px;
+          font-size: 50px;
+          font-family: "AvantGardeCEBold"; }
+
+.blog-section .short-blog-text {
+  margin-top: 50px;
+  text-decoration: none;
+  transition: 0.3s; }
+  .blog-section .short-blog-text:hover {
+    opacity: 0.5; }
+  .blog-section .short-blog-text .blog-category {
+    display: inline-block;
+    font-size: 15px;
+    font-family: "AvantGardeCEBold";
+    color: #929292;
+    text-transform: uppercase;
+    margin-top: 15px; }
+  .blog-section .short-blog-text h5 {
+    font-size: 20px;
+    font-family: "AvantGardeCEBold";
+    color: #15263e;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .blog-section .short-blog-text p {
+    font-size: 15px;
+    color: #494949;
+    line-height: 2; }
+
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  background: #15263e; }
+
+@media screen and (max-width: 1199px) {
+  .about-section .col-lg-4 {
+    order: 1; }
+  .about-section .col-lg-3 {
+    order: 2; }
+  .about-section .col-lg-5 {
+    order: 3; } }
+@media screen and (max-width: 991px) {
+  header .navbar {
+    height: auto; }
+    header .navbar .nav-link.nav-item {
+      display: none; } }
+@media screen and (max-width: 767px) {
+  header .header-content h1 {
+    font-size: 50px; }
+    header .header-content h1 span:first-of-type {
+      letter-spacing: 18px;
+      font-size: 80px;
+      line-height: 0.8; }
+    header .header-content h1 span:last-of-type {
+      letter-spacing: 10px; }
+  header .header-content h4 {
+    font-size: 15px; }
+
+  .contact-section {
+    font-size: 15px; } }
 
 /*# sourceMappingURL=style.css.map */

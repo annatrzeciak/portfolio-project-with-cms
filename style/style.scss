@@ -6,6 +6,11 @@
   font-family: 'AvantGardeCEBold';
   src: url("../fonts/AGD.ttf");
 }
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
 
 .text-gradient {
   -webkit-background-clip: text;
@@ -71,28 +76,43 @@ i {
     display: block;
     border-radius: 50%;
   }
-    &.localization {
-      height: 90px;
-      width: 90px;
-      background-color: #374362;
-      background-image: url("../images/location.svg");
-      background-size: 45px 45px;
-      background-repeat: no-repeat;
-      background-position: center;
-      display: block;
-      border-radius: 50%;
-    }
-    &.mail {
-      height: 90px;
-      width: 90px;
-      background-color: #374362;
-      background-image: url("../images/mail.svg");
-      background-size: 45px 45px;
-      background-repeat: no-repeat;
-      background-position: center;
-      display: block;
-      border-radius: 50%;
-    }
+
+  &.localization {
+    height: 90px;
+    width: 90px;
+    background-color: #374362;
+    background-image: url("../images/location.svg");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    border-radius: 50%;
+  }
+
+  &.mail {
+    height: 90px;
+    width: 90px;
+    background-color: #374362;
+    background-image: url("../images/mail.svg");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    border-radius: 50%;
+  }
+}
+
+.page-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  h3.section-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'AvantGardeCEBold';
+    font-size: 38px;
+    margin-bottom: 40px;
+  }
 }
 
 header {
@@ -115,11 +135,6 @@ header {
         font-size: 18px;
         font-family: "AvantGardeCE";
         font-weight: bold;
-
-        &.active .nav-link,
-        &:hover .nav-link {
-          border-bottom: 2px solid #fff;
-        }
 
         .nav-link {
           color: #fff;
@@ -195,6 +210,10 @@ header {
         margin-top: 0;
       }
 
+      &:last-of-type {
+        margin-bottom: 10px;
+      }
+
       p {
         font-family: "AvantGardeCEBold";
         text-transform: uppercase;
@@ -214,15 +233,195 @@ header {
 
 .contact-section {
   background: #dcdcde;
-  padding-top: 90px;
-  padding-bottom: 90px;
-    color: rgb(77, 77, 77);
-    font-size: 18px;
+  color: rgb(77, 77, 77);
+  font-size: 18px;
+
+  .col-lg-4 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
 
   h5 {
     font-weight: bold;
     text-transform: uppercase;
+  }
+}
 
+.portfolio-section {
+  .portfolio-items {
+    .portfolio-item {
+      min-height: 200px;
+      transition: 0.3s;
+      &:hover{
+        opacity: 0.5;
+      }
 
+      img {
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+.comments {
+  background: url("../images/comments-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-align: right;
+
+  .slider {
+    position: relative;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .comment-item {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      float: right;
+
+      h4 {
+        font-size: 25px;
+        font-family: "AvantGardeCEBold";
+        text-transform: uppercase;
+        line-height: 1.2;
+
+        & + span {
+          font-size: 15px;
+          font-family: "AvantGardeCEBold";
+          color: rgb(199, 20, 213);
+        }
+      }
+
+      img {
+        border-radius: 50%;
+        border: 5px solid #fff;
+      }
+
+      .quotation {
+        margin: 30px;
+        position: relative;
+
+        &:before {
+          content: open-quote;
+          position: absolute;
+          top: -60px;
+          left: -30px;
+          font-size: 50px;
+          font-family: "AvantGardeCEBold";
+        }
+
+        &:after {
+          content: close-quote;
+          position: absolute;
+          right: -30px;
+          bottom: -70px;
+          font-size: 50px;
+          font-family: "AvantGardeCEBold";
+        }
+      }
+    }
+  }
+}
+
+.blog-section {
+  .short-blog-text {
+    margin-top: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    &:hover{
+      opacity: 0.5;
+    }
+    .blog-category {
+      display: inline-block;
+      font-size: 15px;
+      font-family: "AvantGardeCEBold";
+      color: rgb(146, 146, 146);
+      text-transform: uppercase;
+      margin-top: 15px;
+
+    }
+
+    h5 {
+      font-size: 20px;
+      font-family: "AvantGardeCEBold";
+      color: rgb(21, 38, 62);
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: rgb(73, 73, 73);
+      line-height: 2;
+    }
+  }
+}
+
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  background: #15263e;
+
+}
+@media screen and (max-width: 1199px) {
+  .about-section {
+    .col-lg-4 {
+      order: 1;
+    }
+
+    .col-lg-3 {
+      order: 2;
+    }
+
+    .col-lg-5 {
+      order: 3;
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  header {
+    .navbar {
+      height: auto;
+
+      .nav-link.nav-item {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  header {
+    .header-content {
+      h1 {
+        font-size: 50px;
+
+        span:first-of-type {
+          letter-spacing: 18px;
+          font-size: 80px;
+          line-height: 0.8;
+        }
+
+        span:last-of-type {
+          letter-spacing: 10px;
+        }
+      }
+
+      h4 {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .contact-section {
+    font-size: 15px;
   }
 }
