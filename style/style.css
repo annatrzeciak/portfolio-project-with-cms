@@ -39,8 +39,12 @@
       -webkit-text-fill-color: transparent;
       background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%); }
 
+html {
+  min-height: 100%; }
+
 body {
-  font-family: 'AvantGardeCE'; }
+  font-family: 'AvantGardeCE';
+  min-height: 100vh; }
 
 i.phone {
   height: 90px;
@@ -72,6 +76,9 @@ i.mail {
   background-position: center;
   display: block;
   border-radius: 50%; }
+
+.error-message {
+  color: red; }
 
 .page-section {
   padding-top: 80px;
@@ -260,6 +267,9 @@ footer {
   padding-bottom: 20px;
   color: #fff;
   background: #15263e; }
+
+.loginForm {
+  min-height: 100vh; }
 
 @media screen and (max-width: 1199px) {
   .about-section .col-lg-4 {
