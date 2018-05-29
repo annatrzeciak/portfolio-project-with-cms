@@ -15,7 +15,22 @@ function loadComments(){
   $solution=$connection->query('SELECT * FROM comments');
   if(!$solution) throw new Exception($connection->error);
   $row=$solution->fetch_all();
+  return $row;
+}
+function loadLastNews(){
+  global $connection;
 
+  $solution=$connection->query('SELECT * FROM news ORDER BY id DESC LIMIT 3 ');
+  if(!$solution) throw new Exception($connection->error);
+  $row=$solution->fetch_all();
+  return $row;
+}
+function loadNew($path){
+  global $connection;
+
+  $solution=$connection->query('SELECT * FROM news WHERE path="'.$path.'"');
+  if(!$solution) throw new Exception($connection->error);
+  $row=$solution->fetch_assoc();
   return $row;
 
 }

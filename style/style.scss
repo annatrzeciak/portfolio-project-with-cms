@@ -1,16 +1,19 @@
 @font-face {
-  font-family: 'AvantGardeCE';
-  src: url("../fonts/AGW.ttf");
+  font-family: 'Exo2';
+  src: url("../fonts/EXO2-Regular.ttf");
 }
 @font-face {
-  font-family: 'AvantGardeCEBold';
-  src: url("../fonts/AGD.ttf");
+  font-family: 'Exo2-Bold';
+  src: url("../fonts/Exo2-Bold.ttf");
 }
 @mixin calc($property, $expression) {
   #{$property}: -webkit-calc(#{$expression});
   #{$property}: -moz-calc(#{$expression});
   #{$property}: calc(#{$expression});
 }
+$font-bold: 'Exo2-Bold';
+$font-normal: 'Exo2';
+
 
 .text-gradient {
   -webkit-background-clip: text;
@@ -23,7 +26,7 @@
 }
 
 .font-bold {
-  font-family: 'AvantGardeCEBold';
+  font-family: $font-bold;
 }
 
 .btn {
@@ -31,6 +34,7 @@
   padding: 20px 30px;
   font-weight: bold;
   transition: 0.5s;
+
 
   &:focus {
     box-shadow: none;
@@ -43,7 +47,8 @@
   border: 2px solid #a21af0;
   border-image-source: linear-gradient(45deg,#a21af0, #ff0072);
   border-image-slice: 2;
-
+  color: #fff;
+  transition: all 1s;
   span {
     color: #fff;
     -webkit-text-fill-color: none;
@@ -65,7 +70,7 @@ html {
 }
 
 body {
-  font-family: 'AvantGardeCE';
+  font-family: $font-normal;
   min-height: 100vh;
 }
 
@@ -117,9 +122,42 @@ i {
   h3.section-title {
     text-align: center;
     text-transform: uppercase;
-    font-family: 'AvantGardeCEBold';
+    font-family: $font-bold;
     font-size: 38px;
     margin-bottom: 40px;
+  }
+}
+.navbar {
+  background: #15263e;
+  height: 100px;
+
+  .navbar-nav {
+    width: 100%;
+
+    .nav-item {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 18px;
+      font-family: $font-normal;
+      font-weight: bold;
+
+      .nav-link {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-family: $font-normal;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        padding-bottom: 3px;
+        &.active, &:hover{
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%);
+
+        }
+      }
+    }
   }
 }
 
@@ -130,33 +168,7 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 
-  .navbar {
-    background: #15263e;
-    height: 100px;
 
-    .navbar-nav {
-      width: 100%;
-
-      .nav-item {
-        color: #fff;
-        text-transform: uppercase;
-        font-size: 18px;
-        font-family: "AvantGardeCE";
-        font-weight: bold;
-
-        .nav-link {
-          color: #fff;
-          text-transform: uppercase;
-          font-size: 18px;
-          font-family: "AvantGardeCE";
-          font-weight: bold;
-          text-align: center;
-          position: relative;
-          padding-bottom: 3px;
-        }
-      }
-    }
-  }
 
   .header-content {
     color: #fff;
@@ -165,7 +177,7 @@ header {
     font-weight: bold;
 
     h1 {
-      font-family: 'AvantGardeCEBold';
+      font-family: $font-bold;
       text-align: center;
       font-size: 90px;
 
@@ -189,7 +201,7 @@ header {
 .about-section {
   h2 {
     font-size: 50px;
-    font-family: "AvantGardeCEBold";
+    font-family: $font-bold;
     color: rgb(21, 38, 62);
     text-transform: uppercase;
   }
@@ -223,7 +235,7 @@ header {
       }
 
       p {
-        font-family: "AvantGardeCEBold";
+        font-family: $font-bold;
         text-transform: uppercase;
         font-size: 18px;
         color: rgb(77, 77, 77);
@@ -257,6 +269,7 @@ header {
 
 .portfolio-section {
   .portfolio-items {
+    margin-top: 50px;
     .portfolio-item {
       min-height: 200px;
       transition: 0.3s;
@@ -298,13 +311,13 @@ header {
 
       h4 {
         font-size: 25px;
-        font-family: "AvantGardeCEBold";
+        font-family: $font-bold;
         text-transform: uppercase;
         line-height: 1.2;
 
         & + span {
           font-size: 15px;
-          font-family: "AvantGardeCEBold";
+          font-family: $font-bold;
           color: rgb(199, 20, 213);
         }
       }
@@ -324,7 +337,7 @@ header {
           top: -60px;
           left: -30px;
           font-size: 50px;
-          font-family: "AvantGardeCEBold";
+          font-family: $font-bold;
         }
 
         &:after {
@@ -333,7 +346,7 @@ header {
           right: -30px;
           bottom: -70px;
           font-size: 50px;
-          font-family: "AvantGardeCEBold";
+          font-family: $font-bold;
         }
       }
     }
@@ -349,11 +362,16 @@ header {
     &:hover {
       opacity: 0.5;
     }
+    img{
+height: 300px;
+object-fit: cover;
+object-position: center;
 
+    }
     .blog-category {
       display: inline-block;
       font-size: 15px;
-      font-family: "AvantGardeCEBold";
+      font-family: $font-bold;
       color: rgb(146, 146, 146);
       text-transform: uppercase;
       margin-top: 15px;
@@ -361,13 +379,13 @@ header {
 
     h5 {
       font-size: 20px;
-      font-family: "AvantGardeCEBold";
+      font-family: $font-bold;
       color: rgb(21, 38, 62);
       margin-top: 10px;
       margin-bottom: 10px;
     }
 
-    p {
+    div {
       font-size: 15px;
       color: rgb(73, 73, 73);
       line-height: 2;
@@ -383,6 +401,9 @@ footer {
 }
 .loginForm{
 min-height: 100vh;
+}
+.blog-article{
+  margin-top: 150px;
 }
 @media screen and (max-width: 1199px) {
   .about-section {

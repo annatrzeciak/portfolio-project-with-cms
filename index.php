@@ -6,9 +6,9 @@ require('db.php');
  ?>
     </div>
     <div class="header-content">
-      <h3>Hello, I am</h3>
+      <h3>Witam, nazywam się</h3>
       <h1><span class="text-gradient">John</span><br><span>Smith</span></h1>
-      <h4>I have more than 10 years of experience</h4>
+      <h4>Jestem Web designerem z 10-letnim doświadczeniem</h4>
       <a style="margin-top: 50px"href="#" class="btn btn-gradient"><span>Download CV</span></a>
     </div>
     </header>
@@ -27,7 +27,6 @@ require('db.php');
             <div class="skills">
               <div class="skill">
                 <p class="text-center">Design (80%)</p>
-
                 <div class="graph" style="background-image: linear-gradient(45deg, #a21af0 0%, #a21af0 78%, #ff0072 82%, #ff0072 100%);">
                 </div>
               </div>
@@ -64,7 +63,7 @@ require('db.php');
               <i class="phone"></i>
             </div>
             <div class="col-8">
-              <h5>Phone number</h5>
+              <h5>Numer telefonu</h5>
               <span>+48 123 123 123</span><br>
               <span>+48 987 654 321</span>
             </div></div>
@@ -75,7 +74,7 @@ require('db.php');
               <i class="localization"></i>
             </div>
             <div class="col-8">
-              <h5>Address</h5>
+              <h5>Adres</h5>
               <span>Al. Jerozolimskie 160</span><br>
               <span>01-234 Warszawa</span>
             </div>
@@ -99,7 +98,7 @@ require('db.php');
     <section id='portfolio' class="portfolio-section page-section">
       <div class="container">
         <h3 class="section-title">Portfolio</h3>
-        <p class="text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+        <p class="text-center">Ostatnie projekty, które realizowałem.<br>Aby dowiedzieć się więcej wystarczy, że klikniesz na dany projekt i pokażą się dodatkowe informacje.</p>
         <div class="portfolio-items row">
           <div class="col-md-6 ">
             <div class="portfolio-item">
@@ -128,12 +127,12 @@ require('db.php');
     </section>
     <section id='comments' class="comments page-section">
       <div class="container">
-        <h3 class="section-title">Comments</h3>
+        <h3 class="section-title">Opinie</h3>
         <div class="slider">
 
           <?php
-            $solution=loadComments();
-            	foreach ($solution as $key => $value) {
+            $comments=loadComments();
+            	foreach ($comments as $key => $value) {
                 echo
                   '<div class="comment-item item">
                     <div class="row">
@@ -163,31 +162,25 @@ require('db.php');
     <section id='blog'class="page-section blog-section">
       <div class="container">
         <h3 class="section-title">Blog</h3>
-        <p class="text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class="text-center">Najnowsze wpisy, które pojawiły się na moim blogu. </p>
         <div class="row">
-          <a href='#' class="col-md-4 short-blog-text">
-            <img src="./images/woman.png" alt="" class="img-fluid">
-            <span class="blog-category">Personal Adviser</span>
-            <h5>Computer and using some color</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </a>
-            <a href='#'  class="col-md-4 short-blog-text">
-
-            <img src="./images/building.png" alt="" class="img-fluid">
-
-            <span class="blog-category">Personal Adviser</span>
-            <h5>Computer and using some color</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </a>
-            <a href='#'  class="col-md-4 short-blog-text">
-
-            <img src="./images/person.png" alt="" class="img-fluid">
-
-            <span class="blog-category">Personal Adviser</span>
-            <h5>Computer and using some color</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </a>
-
+          <?php
+          $news=loadLastNews();
+          foreach ($news as  $value) {
+            echo '
+            <a title="'.$value[1].'" href="'.$value[6].'" class="col-md-4 short-blog-text">
+              <img src="'.$value[4].'" alt="" class="img-fluid">
+              <span class="blog-category">'.$value[5].'</span>
+              <h5>'.$value[1].'</h5>
+              <div>'.substr($value[3],0,200).'...</div>
+            </a>';
+          }
+          ?>
+        </div>
+        <div class="row text-center">
+          <div class="col-12 text-center">
+            <a class="btn btn-gradient"href="./blog.php"><span>więcej</span></a>
+          </div>
         </div>
 
       </div>
