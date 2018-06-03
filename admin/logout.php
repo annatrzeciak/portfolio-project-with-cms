@@ -4,5 +4,5 @@
   unset($_SESSION['user_login']);
 
 
-  header('Location: admin.php');
+  header('Location: /admin');
 ?>

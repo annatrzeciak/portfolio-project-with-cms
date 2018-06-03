@@ -286,6 +286,25 @@ footer {
 
 .blog-article {
   margin-top: 150px; }
+  .blog-article h1 {
+    font-family: "Exo2-Bold";
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%); }
+  .blog-article .subtitle {
+    color: #929292;
+    text-transform: uppercase;
+    font-size: 16px; }
+
+.admin-section .admin-header {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  background: #f1f1f1f1;
+  margin-bottom: 20px; }
+  .admin-section .admin-header a {
+    margin-right: 15px;
+    display: inline-block; }
 
 @media screen and (max-width: 1199px) {
   .about-section .col-lg-4 {

@@ -12,8 +12,8 @@ $article=loadNew($_SERVER['REQUEST_URI']);
         <img class="img-fluid" src="<?php echo $article['photo'];?>">
         <h1 class="mt-5"><?php echo $article['title'];?></h1>
       </div>
-      <div class="col-md-10 my-5">
-        <h3><?php echo $article['category'].' '.$article['date'];?></h3>
+      <div class="col-md-10 my-3">
+        <h3 class="subtitle"><?php echo $article['category'].' '.$article['date'];?></h3>
         <article class=""><?php echo $article['content'];?>
         </article>
       </div>

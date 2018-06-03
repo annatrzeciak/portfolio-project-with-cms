@@ -1,6 +1,6 @@
 
 <?php
-require ('db.php');
+require ('../db.php');
 session_start();
 function login($login, $password){
 

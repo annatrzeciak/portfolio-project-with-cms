@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $_SESSION['user_login']=$user['login'];
     $_SESSION['log_error']='';
 
-    header('Location: admin.php');
+    header('Location: /admin');
   }else{
     //błędne zalogowanie
     $_SESSION['log_error']= "Podałeś niepoprawne dane do logowania";

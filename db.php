@@ -25,6 +25,15 @@ function loadLastNews(){
   $row=$solution->fetch_all();
   return $row;
 }
+function loadAllNews(){
+  global $connection;
+
+  $solution=$connection->query('SELECT * FROM news ');
+  if(!$solution) throw new Exception($connection->error);
+  $row=$solution->fetch_all();
+  return $row;
+
+}
 function loadNew($path){
   global $connection;
 
