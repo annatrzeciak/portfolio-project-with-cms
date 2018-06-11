@@ -46,7 +46,11 @@ html {
 
 body {
   font-family: "Exo2";
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow-x: hidden; }
+
+a {
+  display: inline-block; }
 
 i.phone {
   height: 90px;
@@ -78,6 +82,28 @@ i.mail {
   background-position: center;
   display: block;
   border-radius: 50%; }
+i.edit {
+  height: 25px;
+  width: 25px;
+  background-image: url("../images/edit.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  display: inline-block; }
+  i.edit:hover {
+    opacity: 1; }
+i.delete {
+  height: 25px;
+  width: 25px;
+  background-image: url("../images/delete.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  display: inline-block; }
+  i.delete:hover {
+    opacity: 1; }
 
 .error-message {
   color: red; }
@@ -305,6 +331,33 @@ footer {
   .admin-section .admin-header a {
     margin-right: 15px;
     display: inline-block; }
+
+th {
+  text-align: center; }
+
+.actionCell {
+  width: 80px;
+  text-align: center; }
+
+.success-info {
+  background: green;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  transform: translate(100%);
+  transition: 0.3s; }
+  .success-info.visible {
+    transform: translate(0); }
+
+.error-info {
+  background: red;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  transform: translate(100%);
+  transition: 0.3s; }
+  .error-info.visible {
+    transform: translate(0); }
 
 @media screen and (max-width: 1199px) {
   .about-section .col-lg-4 {

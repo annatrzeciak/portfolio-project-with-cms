@@ -7,6 +7,8 @@
       <link rel="stylesheet" type="text/css" href="/slick/slick/slick.css" />
       <link rel="stylesheet" type="text/css" href="/slick/slick/slick-theme.css" />
       <link rel="stylesheet" href="/style/style.css">
+      <script src="/ckeditor/ckeditor.js"></script>
+      <script type="text/javascript" src="/ckfinder/ckfinder.js"></script>
       <title>John Smith - Web Designer</title>
   </head>
-  <body <?php echo ($_SERVER['REQUEST_URI']=='/') ? 'data-spy="scroll" data-target=".navbar" data-offset="100"': '' ?>>
+  <body class="d-flex justify-content-beetwen flex-column"<?php echo ($_SERVER['REQUEST_URI']=='/') ? 'data-spy="scroll" data-target=".navbar" data-offset="100"': '' ?>>

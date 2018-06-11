@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
     <header id='home' class="d-flex justify-content-center align-items-center">
 <?php include 'menu.php';
-require('db.php');
+include 'db.php';
 
  ?>
     </div>
