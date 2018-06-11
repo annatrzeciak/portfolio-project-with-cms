@@ -28,7 +28,7 @@ function loadLastArticles(){
 function loadArticles(){
   global $connection;
 
-  $solution=$connection->query('SELECT * FROM articles ');
+  $solution=$connection->query('SELECT * FROM articles ORDER BY id DESC');
   if(!$solution) throw new Exception($connection->error);
   $row=$solution->fetch_all();
   return $row;

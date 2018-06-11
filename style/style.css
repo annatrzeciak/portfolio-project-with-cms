@@ -35,7 +35,8 @@
     color: #fff;
     -webkit-text-fill-color: none; }
   .btn-gradient:hover {
-    background: transparent; }
+    background: transparent;
+    text-decoration: none; }
     .btn-gradient:hover span {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -318,14 +319,15 @@ footer {
 .loginForm {
   min-height: 100vh; }
 
-.blog-article {
-  margin-top: 150px; }
-  .blog-article h1 {
+.blog-article, .blog-articles-list {
+  margin-top: 150px;
+  margin-bottom: 50px; }
+  .blog-article h1, .blog-articles-list h1 {
     font-family: "Exo2-Bold";
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%); }
-  .blog-article .subtitle {
+  .blog-article .subtitle, .blog-articles-list .subtitle {
     color: #929292;
     text-transform: uppercase;
     font-size: 16px; }

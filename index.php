@@ -168,8 +168,13 @@ include 'db.php';
           $news=loadLastArticles();
           foreach ($news as  $value) {
             echo '
-            <a title="'.$value[1].'" href="'.$value[6].'" class="col-md-4 short-blog-text">
-              <img src="'.$value[4].'" alt="" class="img-fluid">
+            <a title="'.$value[1].'" href="'.$value[6].'" class="col-md-4 short-blog-text"> <img src="';
+            if($value[4]==''){
+              echo '/images/web-designer.jpg';
+            }else{
+              echo $value[4];
+            }
+              echo '" alt="" class="img-fluid">
               <span class="blog-category">'.$value[5].'</span>
               <h5>'.$value[1].'</h5>
               <div>'.substr($value[3],0,200).'...</div>

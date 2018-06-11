@@ -10,8 +10,6 @@ if(!isset($_SESSION['user_id'])){
 }
 if(($_SESSION['user_id']>0)){
   require('./adminHeader.php');
-
-
 ?>
 <div class="container"><h2>Dodaj nowy wpis</h2>
     <form class="form-group" method='POST' action='saveArticle'>
@@ -70,8 +68,6 @@ if(($_SESSION['user_id']>0)){
             <input class="btn btn-sm btn-primary p-3" type='submit' value='Zapisz'>
         </div>
     </form>
-
-
     <?php
 
   echo'</div></div>';

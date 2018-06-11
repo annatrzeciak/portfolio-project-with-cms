@@ -51,10 +51,14 @@ $font-normal: 'Exo2';
   span {
     color: #fff;
     -webkit-text-fill-color: none;
+
+
   }
 
   &:hover {
     background: transparent;
+    text-decoration: none;
+
 
     & span {
       -webkit-background-clip: text;
@@ -450,8 +454,9 @@ footer {
   min-height: 100vh;
 }
 
-.blog-article {
+.blog-article, .blog-articles-list {
   margin-top: 150px;
+  margin-bottom: 50px;
 
   h1 {
     font-family: $font-bold;

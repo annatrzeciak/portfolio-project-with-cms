@@ -24,7 +24,7 @@
         </li>
           <li class="nav-item nav-link">-</li>
         <li class="nav-item">
-          <a  <?php echo ($_SERVER['REQUEST_URI']=='/') ? 'href="#blog" class="nav-link "' : 'href="./blog" class="nav-link active"' ?>>Blog</a>
+          <a  <?php echo ($_SERVER['REQUEST_URI']=='/') ? 'href="#blog" class="nav-link "' : 'href="/blog" class="nav-link active"' ?>>Blog</a>
         </li>
         <!-- <li class="nav-item nav-link">-</li>
         <li class="nav-item">

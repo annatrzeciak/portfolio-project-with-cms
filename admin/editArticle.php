@@ -84,8 +84,6 @@ if(($_SESSION['user_id']>0)){
             <input class="btn btn-sm btn-primary p-3" type='submit' value='Zapisz'>
         </div>
     </form>
-
-
     <?php
 
   echo'</div></div>';
