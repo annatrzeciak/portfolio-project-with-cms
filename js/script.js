@@ -16,14 +16,10 @@ $(document).ready(function() {
       slidesToShow: 1
     });
   }
-  var editor = CKEDITOR.replace('editor', {
-    filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
-    filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
-    filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
-    filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-    filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-    filebrowserFlashUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
-  });
-  CKFinder.setupCKEditor(editor, '../');
+ ClassicEditor
+	.create( document.querySelector( '#editor' ) )
+	.catch( error => {
+		console.error( error );
+	} );
 
 });

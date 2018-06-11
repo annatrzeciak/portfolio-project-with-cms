@@ -2,7 +2,7 @@
 include('../header.php');
 include('../menu.php');
 require('../db.php');
-$article=loadNew($_SERVER['REQUEST_URI']);
+$article=loadArticle($_SERVER['REQUEST_URI']);
 
 ?>
 <article class="blog-article">

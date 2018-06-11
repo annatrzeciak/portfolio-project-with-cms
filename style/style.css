@@ -104,6 +104,14 @@ i.delete {
   display: inline-block; }
   i.delete:hover {
     opacity: 1; }
+i.add {
+  height: 16px;
+  width: 16px;
+  background-image: url("../images/add.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block; }
 
 .error-message {
   color: red; }
@@ -358,6 +366,17 @@ th {
   transition: 0.3s; }
   .error-info.visible {
     transform: translate(0); }
+
+.form-control {
+  margin-bottom: 10px; }
+
+.error {
+  color: red;
+  margin-bottom: 15px;
+  margin-top: -5px; }
+
+.ck-editor + .error {
+  margin-top: 5px; }
 
 @media screen and (max-width: 1199px) {
   .about-section .col-lg-4 {

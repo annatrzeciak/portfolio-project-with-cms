@@ -17,27 +17,27 @@ function loadComments(){
   $row=$solution->fetch_all();
   return $row;
 }
-function loadLastNews(){
+function loadLastArticles(){
   global $connection;
 
-  $solution=$connection->query('SELECT * FROM news ORDER BY id DESC LIMIT 3 ');
+  $solution=$connection->query('SELECT * FROM articles ORDER BY id DESC LIMIT 3 ');
   if(!$solution) throw new Exception($connection->error);
   $row=$solution->fetch_all();
   return $row;
 }
-function loadAllNews(){
+function loadArticles(){
   global $connection;
 
-  $solution=$connection->query('SELECT * FROM news ');
+  $solution=$connection->query('SELECT * FROM articles ');
   if(!$solution) throw new Exception($connection->error);
   $row=$solution->fetch_all();
   return $row;
 
 }
-function loadNew($path){
+function loadArticle($path){
   global $connection;
 
-  $solution=$connection->query('SELECT * FROM news WHERE path="'.$path.'"');
+  $solution=$connection->query('SELECT * FROM articles WHERE path="'.$path.'"');
   if(!$solution) throw new Exception($connection->error);
   $row=$solution->fetch_assoc();
   return $row;

@@ -165,7 +165,7 @@ include 'db.php';
         <p class="text-center">Najnowsze wpisy, które pojawiły się na moim blogu. </p>
         <div class="row">
           <?php
-          $news=loadLastNews();
+          $news=loadLastArticles();
           foreach ($news as  $value) {
             echo '
             <a title="'.$value[1].'" href="'.$value[6].'" class="col-md-4 short-blog-text">
