@@ -28,7 +28,7 @@ if(($_SESSION['user_id']>0)){
 
     if($_POST['function']=='upload'){
 
-      $solution=$connection->query('UPDATE articles SET content ="'.$_POST['content'].'", title = "'.$_POST['title'].'",date = "'.$_POST['date'].'" ,category = "'.$_POST['category'].'" WHERE id = '.$_POST['id']);
+      $solution=$connection->query("UPDATE articles SET content ='".$_POST['content']."', title = '".$_POST['title']."',date = '".$_POST['date']."' ,category = '".$_POST['category']."' WHERE id = ".$_POST['id']);
       if(!$solution) {
         throw new Exception($connection->error);
         $_SESSION['error']='Wystąpił błąd podczas aktualizowania wpisu. Spróbuj ponownie później';
@@ -37,7 +37,7 @@ if(($_SESSION['user_id']>0)){
       $_SESSION['success']='Wpis został zaktualizowany';
     } elseif ($_POST['function']=='add') {
 
-      if(!$connection->query('INSERT INTO articles (id ,title, date, content, photo, category, path) VALUES  (null, "'.$_POST['title'].'", "'.$_POST['date'].'", "'.$_POST['content'].'", "", "'.$_POST['category'].'", "")')){
+      if(!$connection->query("INSERT INTO articles (id ,title, date, content, photo, category, path) VALUES  (null, '".$_POST['title']."', '".$_POST['date']."', '".$_POST['content']."', '', '".$_POST['category']."', '')")){
       // if(!$solution) {
         throw new Exception($connection->error);
         $_SESSION['error']='Wystąpił błąd podczas dodawania wpisu. Spróbuj ponownie później';
@@ -47,7 +47,7 @@ if(($_SESSION['user_id']>0)){
     }
 
 
-  	header("Location: /admin/blog-articles");
+  	header("Location: /admin/blog-articles.php");
   }else{
     $_SESSION['form_title']=$_POST['title'];
     $_SESSION['form_content']=$_POST['content'];
@@ -58,7 +58,7 @@ if(($_SESSION['user_id']>0)){
       header("Location: /admin/editArticle.php?id=".$_POST['id']);
     } elseif ($_POST['function']=='add') {
 
-      header("Location: /admin/addArticle");
+      header("Location: /admin/addArticle.php");
     }
 
 

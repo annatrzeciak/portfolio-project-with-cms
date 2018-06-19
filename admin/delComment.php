@@ -19,7 +19,7 @@ if(($_SESSION['user_id']>0)){
 
   $_SESSION['success']='Komentarz został pomyślnie usunięty';
 
-	header("Location: /admin/comments");
+	header("Location: /admin/comments.php");
 
 
 }else{

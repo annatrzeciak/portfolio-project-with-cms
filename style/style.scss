@@ -6,6 +6,10 @@
   font-family: 'Exo2-Bold';
   src: url("../fonts/Exo2-Bold.ttf");
 }
+@font-face {
+  font-family: 'PoorRichard';
+  src: url("../fonts/PoorRichard.ttf");
+}
 @mixin calc($property, $expression) {
   #{$property}: -webkit-calc(#{$expression});
   #{$property}: -moz-calc(#{$expression});
@@ -27,7 +31,17 @@ $font-normal: 'Exo2';
 .font-bold {
   font-family: $font-bold;
 }
+.logo{
+  font-family: 'PoorRichard';
+  font-size: 36px;
 
+
+}
+a{
+  &:hover{
+  text-decoration: none;
+  }
+}
 .btn {
   border-radius: 0;
   padding: 20px 30px;
@@ -374,6 +388,11 @@ header {
       img {
         border-radius: 50%;
         border: 5px solid #fff;
+        background: #fff;
+        height: 150px;
+        width: 150px;
+        object-position: center;;
+        object-fit: contain;;
       }
 
       .quotation {
@@ -530,7 +549,7 @@ th {
   margin-bottom: 15px;
   margin-top: -5px;
 }
-.ck-editor + .error{
+#editor + .error{
   margin-top: 5px;
 
 }

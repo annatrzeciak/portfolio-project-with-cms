@@ -184,7 +184,7 @@ include 'db.php';
         </div>
         <div class="row text-center">
           <div class="col-12 text-center">
-            <a class="btn btn-gradient"href="./blog.php"><span>więcej</span></a>
+            <a class="btn btn-gradient"href="./blog"><span>więcej</span></a>
           </div>
         </div>
 

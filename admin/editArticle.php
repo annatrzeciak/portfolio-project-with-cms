@@ -27,7 +27,7 @@ if(($_SESSION['user_id']>0)){
 
 
 ?>
-    <form class="form-group" method='POST' action='saveArticle'>
+    <form class="form-group" method='POST' action='saveArticle.php'>
       <input type='hidden' name='function' value='upload'>
         <input type='hidden' name='id' value='<?php echo $id; ?>'>
         <input class="form-control" type='text' name='title' value="<?php
@@ -80,7 +80,7 @@ if(($_SESSION['user_id']>0)){
 
         <div class="text-center">
             <br>
-            <a href="/admin/blog-articles">Anuluj</a>
+            <a href="/admin/blog-articles.php">Anuluj</a>
             <input class="btn btn-sm btn-primary p-3" type='submit' value='Zapisz'>
         </div>
     </form>

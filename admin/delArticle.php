@@ -18,7 +18,7 @@ if(($_SESSION['user_id']>0)){
 
   $_SESSION['success']='Wpis został pomyślnie usunięty';
 
-	header("Location: /admin/blog-articles");
+	header("Location: /admin/blog-articles.php");
 
 
 }else{

@@ -12,7 +12,7 @@ if(($_SESSION['user_id']>0)){
   require('./adminHeader.php');
 ?>
 <div class="container"><h2>Dodaj nowy wpis</h2>
-    <form class="form-group" method='POST' action='saveArticle'>
+    <form class="form-group" method='POST' action='saveArticle.php'>
         <input type='hidden' name='function' value='add'>
         <input class="form-control" type='text' name='title' value="<?php
           if(isset($_SESSION['form_title'])){

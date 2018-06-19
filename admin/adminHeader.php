@@ -2,12 +2,12 @@
   <div class="admin-header">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-6">Witaj w panelu admina</div>
+        <div class="col-6"><a href="/" title="Strona główna" class="logo ">code way</a> Witaj w panelu admina</div>
         <div class="col-6 text-right"><a  href="./logout.php" >wyloguj</a></div>
       </div>
       <nav>
-        <a href="./comments">Komentarze</a>
-        <a href="./blog-articles">Wpisy na blogu</a>
+        <a href="./comments.php">Komentarze</a>
+        <a href="./blog-articles.php">Wpisy na blogu</a>
         <a class="btn btn-success p-2" href="addArticle.php"><i class="add"></i> nowy artykuł</a>
       </nav>
     </div>

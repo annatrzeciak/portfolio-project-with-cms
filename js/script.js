@@ -16,10 +16,37 @@ $(document).ready(function() {
       slidesToShow: 1
     });
   }
- ClassicEditor
-	.create( document.querySelector( '#editor' ) )
-	.catch( error => {
-		console.error( error );
-	} );
+  tinymce.init({
+     selector: '#editor',
+     language : 'pl',
+     plugins: 'code image link',
+     toolbar: "formatselect | epi-personalized-content epi-link anchor numlist bullist indent outdent bold italic underline link alignleft aligncenter alignright | image epi-image-editor media code | epi-dnd-processor | removeformat | fullscreen ",
+     images_upload_url: '/upload.php',
+     images_upload_base_path: '/images',
+     images_upload_handler: function (blobInfo, success, failure) {
+        var xhr, formData;
+        xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', '/upload.php');
+        xhr.onload = function() {
+          var json;
 
+          if (xhr.status != 200) {
+            failure('HTTP Error: ' + xhr.status);
+            return;
+          }
+          json = JSON.parse(xhr.responseText);
+
+          if (!json || typeof json.location != 'string') {
+            failure('Invalid JSON: ' + xhr.responseText);
+            return;
+          }
+          console.log(json.location);
+          success('/'+json.location);
+        };
+        formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+        xhr.send(formData);
+      }
+   });
 });
