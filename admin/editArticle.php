@@ -27,20 +27,38 @@ if(($_SESSION['user_id']>0)){
 
 
 ?>
-    <form class="form-group" method='POST' action='saveArticle.php'>
+    <form enctype="multipart/form-data" class="form-group" method='POST' action='saveArticle.php'>
       <input type='hidden' name='function' value='upload'>
         <input type='hidden' name='id' value='<?php echo $id; ?>'>
         <input class="form-control" type='text' name='title' value="<?php
           if(isset($_SESSION['form_title'])){
               echo $_SESSION['form_title'];
               unset($_SESSION['form_title']);
-          }else{echo $title;}?>">
+          }else{
+            echo $title;
+          }?>">
           <?php
            if(isset($_SESSION['title_error'])){
                echo '<div class="error">'.$_SESSION['title_error'].'</div>';
                unset($_SESSION['title_error']);
            }
           ?>
+        <label class="mb-0"><strong class="mb-2">Główny obrazek</strong>
+
+        <input onchange="previewFile()" class="form-control" type="file" name="photo" accept="image/*">
+        <img class="mb-2"style="max-width:250px;"src="<?php
+        if(isset($_SESSION['form_photo'])){
+          echo $_SESSION['form_photo'];
+        }else{
+          echo $photo;}
+        ?>" alt="">
+      </label>
+      <?php
+       if(isset($_SESSION['photo_error'])){
+           echo '<div class="error">'.$_SESSION['photo_error'].'</div>';
+           unset($_SESSION['photo_error']);
+       }
+      ?>
         <input class="form-control" type='date' name='date' value="<?php
           if(isset($_SESSION['form_date'])){
               echo $_SESSION['form_date'];
@@ -84,6 +102,13 @@ if(($_SESSION['user_id']>0)){
             <input class="btn btn-sm btn-primary p-3" type='submit' value='Zapisz'>
         </div>
     </form>
+
+
+    	<!-- <form enctype="multipart/form-data" action="uploadImage.php" method="POST">
+    	Wybierz plik do uploadu: <input name="photo" type="file"><br>
+    	<input type='submit' value='Upload File'>
+    	</form> -->
+
     <?php
 
   echo'</div></div>';

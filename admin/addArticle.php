@@ -12,7 +12,7 @@ if(($_SESSION['user_id']>0)){
   require('./adminHeader.php');
 ?>
 <div class="container"><h2>Dodaj nowy wpis</h2>
-    <form class="form-group" method='POST' action='saveArticle.php'>
+    <form enctype="multipart/form-data" class="form-group" method='POST' action='saveArticle.php'>
         <input type='hidden' name='function' value='add'>
         <input class="form-control" type='text' name='title' value="<?php
           if(isset($_SESSION['form_title'])){
@@ -25,6 +25,21 @@ if(($_SESSION['user_id']>0)){
                unset($_SESSION['title_error']);
            }
           ?>
+          <label class="mb-0"><strong class="mb-2">Główny obrazek</strong>
+
+          <input onchange="previewFile()" class="form-control" type="file" name="photo" accept="image/*" >
+          <img class="mb-2"style="max-width:250px;"src="<?php
+          if(isset($_SESSION['form_photo'])){
+            echo $_SESSION['form_photo'];
+          }
+          ?>" alt="">
+        </label>
+        <?php
+         if(isset($_SESSION['photo_error'])){
+             echo '<div class="error">'.$_SESSION['photo_error'].'</div>';
+             unset($_SESSION['photo_error']);
+         }
+        ?>
         <input class="form-control" type='date' name='date' value="<?php
           if(isset($_SESSION['form_date'])){
               echo $_SESSION['form_date'];
