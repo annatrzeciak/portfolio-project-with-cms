@@ -1,12 +1,19 @@
 <?php
 include '../header.php';
 require('./adminUtils.php');
-$articles=loadArticles();
+$articles=loadAllArticles();
 if(!isset($_SESSION['user_id'])){
   $_SESSION['user_id']=0;
 }
 if(($_SESSION['user_id']>0)){
   require('./adminHeader.php');
+
+  unset($_SESSION['form_title']);
+  unset($_SESSION['form_content']);
+  unset($_SESSION['form_photo']);
+  unset($_SESSION['form_date']);
+  unset($_SESSION['form_category']);
+
   echo '<div class="container-fluid">
   <table class="table table-striped table-hover"><thead><tr><th>lp.</th><th>Kategoria</th><th>Tytuł</th><th>Data</th><th>Treść</th><th>Zdjęcie</th><th class="actionCell">Akcje</th></thead><tbody>';
 	foreach ($articles as $key => $value) {

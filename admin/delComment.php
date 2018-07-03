@@ -14,7 +14,7 @@ if(($_SESSION['user_id']>0)){
   $solution=$connection->query('DELETE FROM comments WHERE id = '.$id);
   if(!$solution) {
     throw new Exception($connection->error);
-    $_SESSION['error']='Wystąpił błąd podczas komentarza. Spróbuj ponownie później';
+    $_SESSION['error']='Wystąpił błąd podczas usuwania komentarza. Spróbuj ponownie później';
   }
 
   $_SESSION['success']='Komentarz został pomyślnie usunięty';

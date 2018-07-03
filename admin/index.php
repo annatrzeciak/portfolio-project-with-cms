@@ -8,7 +8,7 @@ if(!isset($_SESSION['user_id'])){
 if(($_SESSION['user_id']>0)){
   require('./adminHeader.php');
 
-  echo '<div class="container">Przejdź do odpowiedniej sekcji, aby móc zarządzać treścią</div></div>';
+  echo '<div class="container-fluid">Przejdź do odpowiedniej sekcji, aby móc zarządzać treścią</div></div>';
 
 }else{
   require('./adminLogin.php');

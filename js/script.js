@@ -1,4 +1,4 @@
-$('a.nav-link').click(function() {
+$('.navbar a').click(function() {
   $('html, body').animate({
     scrollTop: $($(this).attr('href')).offset().top
   }, 500);
@@ -49,6 +49,40 @@ $(document).ready(function() {
         xhr.send(formData);
       }
    });
+
+  var scrollTop = 0;
+  $(window).scroll(function(){
+    scrollTop = $(window).scrollTop();
+     // $('.navbar-nav').html(scrollTop);
+
+    if (scrollTop >= 100) {
+      $('.navbar').addClass('short-navbar');
+    } else if (scrollTop < 100) {
+      $('.navbar').removeClass('short-navbar');
+    }
+
+  });
+  $('.portfolio-item a').click(
+      function () {
+          $('#alertWindow img').attr("src", $(this).children('img').attr("src"))
+              .attr("alt", $(this).children('img').attr("alt"))
+              .attr("title", $(this).children('img').attr("title"));
+          $('#alertWindow h3').html($(this).children().children('h4').html());
+
+          $('#alertWindow #link-view').attr('href',$(this).children('.project-link-view').val());
+          $('#alertWindow #link-github').attr('href',$(this).children('.project-link-github').val());
+          $('#alertWindow .project-description').html($(this).children('.project-description').val());
+
+
+          $('#alertWindow').css({
+              'display': 'block'
+          });
+
+      }
+  );
+
+
+
 });
 function previewFile() {
   var preview = document.querySelector('img');

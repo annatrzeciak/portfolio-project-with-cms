@@ -8,7 +8,11 @@
       <nav>
         <a href="./comments.php">Komentarze</a>
         <a href="./blog-articles.php">Wpisy na blogu</a>
+        <a href="./projects.php">Projekty</a>
+
         <a class="btn btn-success p-2" href="addArticle.php"><i class="add"></i> nowy artykuł</a>
+        <a class="btn btn-success p-2" href="addProject.php"><i class="add"></i> nowy projekt</a>
+
       </nav>
     </div>
   </div>

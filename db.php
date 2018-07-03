@@ -25,10 +25,19 @@ function loadLastArticles(){
   $row=$solution->fetch_all();
   return $row;
 }
-function loadArticles(){
+function loadArticles($limit,$page){
   global $connection;
 
-  $solution=$connection->query('SELECT * FROM articles ORDER BY id DESC');
+  $solution=$connection->query('SELECT * FROM articles ORDER BY id DESC LIMIT '.($page*$limit).','.$limit);
+  if(!$solution) throw new Exception($connection->error);
+  $row=$solution->fetch_all();
+  return $row;
+
+}
+function loadAllArticles(){
+  global $connection;
+
+  $solution=$connection->query('SELECT * FROM articles ORDER BY id DESC ');
   if(!$solution) throw new Exception($connection->error);
   $row=$solution->fetch_all();
   return $row;
@@ -40,6 +49,15 @@ function loadArticle($path){
   $solution=$connection->query('SELECT * FROM articles WHERE path="'.$path.'"');
   if(!$solution) throw new Exception($connection->error);
   $row=$solution->fetch_assoc();
+  return $row;
+
+}
+function loadProjects(){
+  global $connection;
+
+  $solution=$connection->query('SELECT * FROM projects ORDER BY id DESC ');
+  if(!$solution) throw new Exception($connection->error);
+  $row=$solution->fetch_all();
   return $row;
 
 }

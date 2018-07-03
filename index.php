@@ -100,27 +100,34 @@ include 'db.php';
         <h3 class="section-title">Portfolio</h3>
         <p class="text-center">Ostatnie projekty, które realizowałem.<br>Aby dowiedzieć się więcej wystarczy, że klikniesz na dany projekt i pokażą się dodatkowe informacje.</p>
         <div class="portfolio-items row">
-          <div class="col-md-6 ">
-            <div class="portfolio-item">
-               <img src="./images/portfolio-business-card.png" alt="" class="img-fluid">
-            </div>
-            <div class="portfolio-item">
-              <img src="./images/portfolio-cv-template.png" alt="" class="img-fluid">
-            </div>
-            <div class="portfolio-item">
-              <img src="./images/portfolio-nature-template.png" alt=""class="img-fluid" >
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="portfolio-item">
-              <img src="./images/portfolio-restaurant-table.png" alt=""class="img-fluid" >
-            </div>
-            <div class="portfolio-item">
-              <img src="./images/portfolio-summer.png" alt=""class="img-fluid" >
-            </div>
-            <div class="portfolio-item">
-              <img src="./images/portfolio-website-template.png" alt="" class="img-fluid">
-          </div>
+        <?php
+          $projects=loadProjects();
+        	foreach ($projects as $key => $value) {
+            $tags=explode( ', ', trim($value[6]));
+            echo '<div class="col-md-6 portfolio-item">
+            <a title="'.$value[1].'" >
+              <input class="project-description" type="hidden" value="'.$value[2].'">
+              <input  class="project-link-view"type="hidden" value="'.$value[4].'">
+              <input class="project-link-github" type="hidden" value="'.$value[5].'">
+
+              <img src="'.$value[3].'
+              " alt="'.$value[1].' - zdjęcie" title="'.$value[1].' - screen projektu" class="">
+              <div class="short-info">
+              <h4>'.$value[1].'  <p class="tags">';
+
+              	foreach (  $tags as $tag) {
+                  echo '<span class="tag">'.$tag.'</span>';
+
+                }
+              echo '</p></h4> <h5>więcej</h5>
+              </div>
+                 </a>
+           </div>
+
+              ';
+
+          }
+         ?>
           </div>
         </div>
       </div>
@@ -155,7 +162,6 @@ include 'db.php';
                     </div>
                   </div>';
                 }?>
-
             </div>
         </div>
     </section>
@@ -165,8 +171,8 @@ include 'db.php';
         <p class="text-center">Najnowsze wpisy, które pojawiły się na moim blogu. </p>
         <div class="row">
           <?php
-          $news=loadLastArticles();
-          foreach ($news as  $value) {
+          $articles=loadLastArticles();
+          foreach ($articles as  $value) {
             echo '
             <a title="'.$value[1].'" href="'.$value[6].'" class="col-md-4 short-blog-text"> <img src="';
             if($value[4]==''){
@@ -177,18 +183,42 @@ include 'db.php';
               echo '" alt="" class="img-fluid">
               <span class="blog-category">'.$value[5].'</span>
               <h5>'.$value[1].'</h5>
-              <div>'.substr($value[3],0,200).'...</div>
+              <div>'.strip_tags(substr($value[3],0,200)).'...</div>
             </a>';
           }
           ?>
         </div>
         <div class="row text-center">
           <div class="col-12 text-center">
-            <a class="btn btn-gradient"href="./blog"><span>więcej</span></a>
+            <a class="btn btn-gradient mt-3"href="./blog"><span>więcej</span></a>
           </div>
         </div>
 
       </div>
 
     </section>
+    <div id="alertWindow">
+      <div class="alertContent">
+        <a class="btn-close"onclick='javascript: document.getElementById("alertWindow").style.display="none"'><i class="close"></i></a>
+      <div class="row">
+        <div class="col-12 mb-4">
+          <img src="" alt="" class="img-fluid">
+        </div>
+       <div class="col-md-6 text-center">
+          <h3 class="font-bold " ></h3>
+          <div class="text-center">
+         <a target="_blank"class="m-2" title="Zobacz stronę / aplikację"href="#" id='link-view'><i class='view'></i> live</a>
+         <a target="_blank"class=" m-2" title="Zobacz kod na github"href="#" id='link-github'><i class="github"></i> repozytorium</a><br>
+  </div>
+       </div>
+       <div class="col-md-6">
+
+         <p class="font-weight-normal project-description"></p>
+       </div>
+
+      </div>
+
+      </div>
+
+    </div>
     <?php include 'footer.php'; ?>

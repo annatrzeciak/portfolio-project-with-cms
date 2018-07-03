@@ -9,7 +9,18 @@ include('../db.php');
   <div class="container">
     <h1>Wpisy na blogu</h1>
     <?php
-    $articles=loadArticles();
+
+    $countArticles=intval(count(loadAllArticles()));
+    $countPages=ceil($countArticles/10);
+    if(!isset($_GET['start'])||$_GET['start']<=0){
+      $_GET['start']=1;
+      header("Location: /blog/?start=1");
+    }elseif ($_GET['start']>$countPages) {
+      $_GET['start']=$countPages;
+      header("Location: /blog/?start=".$countPages);
+    }
+    $page=$_GET['start']-1;
+    $articles=loadArticles(10,$page);
     foreach ($articles as $key => $value) {
       echo '<div class="row my-4">
           <div class="col-sm-5">
@@ -28,7 +39,33 @@ include('../db.php');
           </div>
         </div>';
     }
-
+    echo
+    '<nav aria-label="Page navigation ">
+      <ul class="pagination pagination-sm justify-content-center">
+        <li class="page-item ';
+        if ( $_GET['start']==1) echo 'disabled';
+        echo '">
+          <a class="page-link" href="/blog/?start='.($page).'" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+      ';
+    for($i=1;$i<=$countPages;$i++){
+      echo '<li class="page-item ';
+      if ( $_GET['start']==$i) echo 'active';
+      echo'"><a class="page-link" href="/blog/?start='.$i.'">'.$i.'</a></li>';
+    }
+    echo '<li class="page-item ';
+    if ( $_GET['start']==$countPages) echo 'disabled';
+    echo '">
+        <a class="page-link" href="/blog/?start='.($page+2).'" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>';
      ?>
 
   </div>

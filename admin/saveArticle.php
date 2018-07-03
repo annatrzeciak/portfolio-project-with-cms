@@ -77,7 +77,7 @@ if(($_SESSION['user_id']>0)){
   	header("Location: /admin/blog-articles.php");
   }else{
     $_SESSION['form_title']=$_POST['title'];
-    $_SESSION['uploadedPhotoPath']=$file_path;
+    $_SESSION['form_photo']=$file_path;
     $_SESSION['form_content']=$_POST['content'];
     $_SESSION['form_date']=$_POST['date'];
     $_SESSION['form_category']=$_POST['category'];
@@ -88,7 +88,6 @@ if(($_SESSION['user_id']>0)){
 
       header("Location: /admin/addArticle.php");
     }
-
 
   }
 
