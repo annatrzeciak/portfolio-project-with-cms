@@ -1,17 +1,15 @@
 <div class="admin-section">
   <div class="admin-header">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-6"><a href="/" title="Strona główna" class="logo ">code way</a> Witaj w panelu admina</div>
-        <div class="col-6 text-right"><a  href="./logout.php" >wyloguj</a></div>
-      </div>
-      <nav>
-        <a href="./comments.php">Komentarze</a>
-        <a href="./blog-articles.php">Wpisy na blogu</a>
-        <a href="./projects.php">Projekty</a>
+      <nav class="d-flex nav">
+       <a href="/" title="Strona główna" class="logo navbar-brand pt-0">code way</a>
+        <a class='nav-link p-3' href="./comments.php">Komentarze</a>
+        <a class='nav-link p-3' href="./blog-articles.php">Wpisy na blogu</a>
+        <a class='nav-link p-3' href="./projects.php">Projekty</a>
 
-        <a class="btn btn-success p-2" href="addArticle.php"><i class="add"></i> nowy artykuł</a>
-        <a class="btn btn-success p-2" href="addProject.php"><i class="add"></i> nowy projekt</a>
+        <a class="text-success nav-link  ml-auto p-3" href="addArticle.php"><i class="fas fa-plus"></i> nowy artykuł</a>
+        <a class="text-success nav-link p-3" href="addProject.php"><i class="fas fa-plus"></i> nowy projekt</a>
+        <a  class='nav-link p-3'href="./logout.php" >wyloguj</a>
 
       </nav>
     </div>
@@ -46,4 +44,5 @@
   }
   unset($_SESSION['error']);
   unset($_SESSION['success']);
+    
 ?>

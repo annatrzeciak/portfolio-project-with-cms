@@ -115,7 +115,7 @@ if(($_SESSION['user_id']>0)){
           </div>
           <div class="form-group">
             <label><strong>Opis</strong></label>
-        <textarea class="form-control " name='content' cols='90' rows='10'>
+        <textarea id='editor'class="form-control " name='content' cols='90' rows='10'>
         <?php
             if(isset($_SESSION['form_content'])){
                 echo $_SESSION['form_content'];

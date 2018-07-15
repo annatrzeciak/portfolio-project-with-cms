@@ -20,8 +20,8 @@ function printLoginForm(){
   if (isset($_SESSION['log_error'])){
     echo '<div class="form-group error-message">'.$_SESSION['log_error'].'</div>';
   };
-  echo '<div class="form-group"><label>Login: </label><input class="form-control" name="login" type="text"></div>';
-  echo '<div class="form-group"><label>Hasło: </label><input class="form-control" name="password" type="password"></div>';
+  echo '<div class="form-group"><label>Login: </label><input class="form-control" name="login" value="admin" type="text"></div>';
+  echo '<div class="form-group"><label>Hasło: </label><input value="admin"class="form-control" name="password" type="password"></div>';
   echo '<div class="form-group text-right"><input class="btn btn-primary p-2" type="submit" value="Zaloguj"></div></form></div>';
   unset($_SESSION['log_error']);
 }
