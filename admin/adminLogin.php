@@ -1,7 +1,9 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
-  if($user = login($_POST['login'], $_POST['password'])){
+    $login=htmlentities($_POST['login'], ENT_QUOTES, 'UTF-8');
+    $password=htmlentities($_POST['password'], ENT_QUOTES, 'UTF-8');
+  if($user = login($login, $password)){
     //poprawne zalogowanie
     $_SESSION['user_id']=$user['id'];
     $_SESSION['user_login']=$user['login'];

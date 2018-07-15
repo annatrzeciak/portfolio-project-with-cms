@@ -9,6 +9,7 @@ if(($_SESSION['user_id']>0)){
   require('./adminHeader.php');
 
   echo '<div class="container-fluid">Przejdź do odpowiedniej sekcji, aby móc zarządzać treścią</div></div>';
+    include('../footer.php');
 
 }else{
   require('./adminLogin.php');
