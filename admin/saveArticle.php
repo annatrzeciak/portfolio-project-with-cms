@@ -12,9 +12,10 @@ if(($_SESSION['user_id']>0)){
 
   $form_complete=true;
   $max_size = 20971520;
-  $file = $_FILES['photo']['name'];
-  $file_loc = $_FILES['photo']['tmp_name'];
-  $file_size = $_FILES['photo']['size'];
+  if($_FILES['photo']['name']!='' || isset($_SESSION['form_photo'])){
+    $file = $_FILES['photo']['name'];
+    $file_loc = $_FILES['photo']['tmp_name'];
+    $file_size = $_FILES['photo']['size'];
 
   if($file_size > $max_size){
     $_SESSION['photo_error']='Plik jest za duży ';
@@ -36,6 +37,7 @@ if(($_SESSION['user_id']>0)){
     }
 
   }
+}
   if(strlen($_POST['title'])<1){
     $_SESSION['title_error']='Wprowadź tytuł artykułu';
     $form_complete=false;

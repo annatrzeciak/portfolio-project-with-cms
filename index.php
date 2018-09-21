@@ -82,8 +82,9 @@ include 'db.php';
                 if($key%2==0){
                      echo ' <div class="row project">
                 <div class="col-lg-6 project-image">
-                    <img src="'.$value[3].'
-              " alt="'.$value[1].' - zdjęcie" title="'.$value[1].' - screen projektu" class="img-fluid">
+                    <img src="';
+                    echo ($value[3]==''|| $value[3]=='/images/')? '/images/default-image.png' : $value[3];
+                    echo '" alt="'.$value[1].' - zdjęcie" title="'.$value[1].' - screen projektu" class="img-fluid">
                </div>
                 <div class="col-lg-6 project-description">
                     <h4>'.$value[1].'</h4>
@@ -95,7 +96,7 @@ include 'db.php';
                 <a target="_blank" class=" m-2" title="Repozytorium strony" href="'.$value[5].'"><i class="fab fa-github"></i> </a>
                 </div>
             </div>';
-                    
+
                 }else{
                     echo ' <div class="row project">
                     <div class="col-lg-6 project-description">
@@ -111,10 +112,10 @@ include 'db.php';
                     <img src="'.$value[3].'
               " alt="'.$value[1].' - zdjęcie" title="'.$value[1].' - screen projektu" class="img-fluid">
                </div>
-                
-            </div>'; 
+
+            </div>';
                 }
-           
+
           }
          ?>
         </div>
@@ -140,7 +141,9 @@ include 'db.php';
                       <div class="col-md-5 offset-md-1">
                         <div class="row d-flex align-items-center">
                           <div class="col-5">
-                              <img  alt="'.$value[1].' comment" title="'.$value[1].' - photo" src="'.$value[4].'">
+                              <img  alt="'.$value[1].' comment" title="'.$value[1].' - photo" src="';
+                              echo ($value[4]=='' || $value[4]=='/images/') ? '/images/default-user.png' : $value[4];
+                              echo '">
                           </div>
                           <div class="col-7">
                             <h4>'.$value[1].'</h4>
@@ -186,8 +189,8 @@ include 'db.php';
           foreach ($articles as  $value) {
             echo '
             <a title="'.$value[1].'" href="'.$value[6].'" class="col-md-4 short-blog-text"> <img src="';
-            if($value[4]==''){
-              echo '/images/web-designer.jpg';
+            if($value[4]=='' || $value[4]=='/images/'){
+              echo '/images/default-image.png';
             }else{
               echo $value[4];
             }

@@ -26,7 +26,7 @@ include('../db.php');
           <div class="col-sm-5">
             <img src="';
             if($value[4]==''){
-              echo '/images/web-designer.jpg';
+              echo '/images/default-image.png';
             }else{
               echo $value[4];
             }

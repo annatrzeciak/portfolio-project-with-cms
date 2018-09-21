@@ -17,7 +17,9 @@ if(($_SESSION['user_id']>0)){
   echo '<div class="container-fluid">
   <table class="table table-striped table-hover"><thead><tr><th>lp.</th><th>Kategoria</th><th>Tytuł</th><th>Data</th><th>Treść</th><th>Zdjęcie</th><th class="actionCell">Akcje</th></thead><tbody>';
 	foreach ($articles as $key => $value) {
-    echo '<tr><td>'.$key.'</td><td>'.$value[5].'</td><td>'.$value[1].'</td><td>'.$value[2].'</td><td>'.strip_tags(substr($value[3],0,200)).'</td><td><img width="150" src="'.$value[4].'"></td><td class="actionCell"><a href="editArticle.php?id='.$value[0].' "><i class="fas fa-edit"></i></a> <a href="delArticle.php?id='.$value[0].'" ';
+    echo '<tr><td>'.$key.'</td><td>'.$value[5].'</td><td>'.$value[1].'</td><td>'.$value[2].'</td><td>'.strip_tags(substr($value[3],0,200)).'</td><td><img width="150" src="';
+    echo ($value[4]=='' || $value[4]=='/images/')? '/images/default-image.png' : $value[4];
+    echo '"></td><td class="actionCell"><a href="editArticle.php?id='.$value[0].' "><i class="fas fa-edit"></i></a> <a href="delArticle.php?id='.$value[0].'" ';
     echo "onclick='";
     echo 'javascript: return confirm("Czy na pewno chcesz usunąć wpis: '.$value[1].'")';
     echo "'><i class='fas fa-trash-alt'></i></i></a></td>
