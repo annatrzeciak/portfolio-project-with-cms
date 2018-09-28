@@ -65,12 +65,6 @@
   .logo:hover {
     text-decoration: none; }
 
-a:not(.close, #more-cookies-info):hover {
-  text-decoration: none;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%); }
-
 .btn {
   border-radius: 0;
   padding: 20px 30px;
@@ -82,28 +76,23 @@ a:not(.close, #more-cookies-info):hover {
     box-shadow: none; }
 
 .btn-gradient {
-  background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%);
   text-transform: uppercase;
   border: 2px solid #a21af0;
   border-image-source: linear-gradient(45deg, #a21af0, #ff0072);
+  background-image: linear-gradient(45deg, #a21af0, #ff0072);
   border-image-slice: 2;
   color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s; }
-  .btn-gradient span {
+  .btn-gradient:active, .btn-gradient:active i, .btn-gradient:hover, .btn-gradient:hover i {
     color: #fff;
-    -webkit-text-fill-color: none; }
-  .btn-gradient:active, .btn-gradient:hover {
-    background: transparent;
-    text-decoration: none;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%) !important;
     font-weight: bold; }
-    .btn-gradient:active span, .btn-gradient:hover span {
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%); }
+
+input.btn-gradient:hover {
+  -webkit-text-fill-color: #D10DB1; }
 
 .btn-close {
   position: absolute;
@@ -122,6 +111,9 @@ body {
 
 a {
   display: inline-block; }
+
+i {
+  transition: .3s; }
 
 .error-message,
 .error_info,
@@ -405,35 +397,20 @@ header {
   text-align: right; }
   #contact .contact-content {
     margin-top: 50px; }
-    #contact .contact-content .form-control {
-      border: 2px solid #a21af0;
-      border-image-source: linear-gradient(45deg, #a21af0, #ff0072);
-      border-image-slice: 2;
-      border-radius: 0;
-      margin-top: 10px;
-      margin-bottom: 10px;
+  #contact a {
+    color: #fff; }
+    #contact a i {
+      font-size: 30px; }
+    #contact a:hover, #contact a:hover i {
+      text-decoration: none;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%); }
+  #contact .g-recaptcha {
+    margin-bottom: 10px; }
+    #contact .g-recaptcha .rc-anchor-light {
       background: transparent;
-      color: #fff;
-      -webkit-transition: 0.3s;
-      transition: 0.3s; }
-      #contact .contact-content .form-control:focus {
-        border-left-width: 6px;
-        -webkit-box-shadow: none;
-        box-shadow: none; }
-    #contact .contact-content a {
       color: #fff; }
-      #contact .contact-content a i {
-        font-size: 30px; }
-      #contact .contact-content a:hover, #contact .contact-content a:hover i {
-        text-decoration: none;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(45deg, #a21af0 0%, #ff0072 100%); }
-    #contact .contact-content .g-recaptcha {
-      margin-bottom: 10px; }
-      #contact .contact-content .g-recaptcha .rc-anchor-light {
-        background: transparent;
-        color: #fff; }
 
 footer {
   padding-top: 20px;
@@ -462,6 +439,27 @@ footer {
     .tags .tag:before {
       content: '#';
       font-weight: bold; }
+
+.add-comment-form .form-control,
+.send-message-form .form-control {
+  border: 2px solid #a21af0;
+  border-image-source: linear-gradient(45deg, #a21af0, #ff0072);
+  border-image-slice: 2;
+  border-radius: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: transparent;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s; }
+  .add-comment-form .form-control:focus,
+  .send-message-form .form-control:focus {
+    border-left-width: 6px;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+
+.add-comment-form.show + .col-12 .btn-gradient i.fas {
+  transform: rotateZ(180deg); }
 
 #cookieinfo * {
   margin: 0;

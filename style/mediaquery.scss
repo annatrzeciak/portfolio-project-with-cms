@@ -1,0 +1,108 @@
+
+@media screen and (max-width: 991px) {
+    header {
+        .navbar {
+            height: auto;
+            .nav-link.nav-item {
+                display: none;
+            }
+        }
+    }
+    .portfolio-items {
+        .project {
+            .project-image {
+                -webkit-box-ordinal-group: 2;
+                -ms-flex-order: 1;
+                order: 1;
+            }
+            .project-description {
+                -webkit-box-ordinal-group: 3;
+                -ms-flex-order: 2;
+                order: 2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        .header-content {
+            h1 {
+                font-size: 50px;
+                span:first-of-type {
+                    padding-left: 18px;
+                    letter-spacing: 18px;
+                    font-size: 80px;
+                    line-height: 0.8;
+                }
+                span:last-of-type {
+                    padding-left: 10px;
+                    letter-spacing: 10px;
+                }
+            }
+            h4 {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #contact {
+        .recaptcha {
+            text-align: center;
+            .g-recaptcha>div {
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+        .submit-button {
+            text-align: center !important;
+        }
+    }
+    footer a.logo {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #contact {
+        .recaptcha {
+            .g-recaptcha {
+                margin-right: -15px;
+                margin-left: -15px;
+            }
+        }
+    }
+}
+
+@media screen and (-ms-high-contrast: active),
+screen and (-ms-high-contrast: none) {
+    .nav-link.active,
+    .text-gradient,
+    a:hover {
+        color: #a21af0 !important;
+        background: transparent !important;
+        i {
+            background: transparent !important;
+            color: #a21af0 !important;
+        }
+    }
+    .btn-gradient {
+        color: #fff !important;
+        border: 2px solid #a21af0 !important;
+        background: #a21af0 !important;
+        &:hover {
+            background: transparent !important;
+        }
+    }
+    .form-control {
+        border: 2px solid #a21af0 !important;
+    }
+    .portfolio-section {
+        height: 100% !important;
+    }
+    nav.navbar {
+        min-height: 50px !important;
+    }
+}

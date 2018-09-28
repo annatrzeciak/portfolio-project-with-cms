@@ -1,7 +1,6 @@
 
 <?php
 require ('../db.php');
-session_start();
 function login($login, $password){
 
   global $connection;
